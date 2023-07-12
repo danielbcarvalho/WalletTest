@@ -1,10 +1,12 @@
 import * as React from 'react';
-import {useNavigation} from '@react-navigation/native';
-import {useTranslation} from 'react-i18next';
-import {Text, TouchableOpacity} from 'react-native';
-import {NativeStackNavigationProp} from '@react-navigation/native-stack';
-import {ParamsList} from '../../Routes';
-import {useQuery} from '@tanstack/react-query';
+import { useQuery } from '@tanstack/react-query';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+
+import { useTranslation } from 'react-i18next';
+
+import { ParamsList } from '../../Routes';
+import { Container, Title } from './styles';
 
 // TODO: estudar diferenca type e interface
 type MyCardsNav = NativeStackNavigationProp<ParamsList, 'CardList'>;
@@ -23,15 +25,15 @@ function CardList() {
     };
   });
 
-  const {navigate} = useNavigation<MyCardsNav>();
-  const {t} = useTranslation();
+  const { navigate } = useNavigation<MyCardsNav>();
+  const { t } = useTranslation();
   return (
-    <TouchableOpacity
-      style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}
+    <Container
+      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
       onPress={() => navigate('CardRegistration')}>
-      <Text>{t('my cards')}</Text>
-      <Text>{cards?.data?.cards.map(card => card.name)}</Text>
-    </TouchableOpacity>
+      <Title>{t('my cards')}</Title>
+      <Title>{cards?.data?.cards.map(card => card.name)}</Title>
+    </Container>
   );
 }
 

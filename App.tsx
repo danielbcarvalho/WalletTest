@@ -1,6 +1,6 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {Routes} from './src/Routes';
+import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from './src/Routes';
 import Provider from './src/Provider';
 
 function App() {
