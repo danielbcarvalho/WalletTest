@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-const resources = {
+export const translations = {
   pt: {
     translation: {
       'my cards': 'meus cartões',
@@ -12,8 +12,11 @@ const resources = {
 
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
-  resources,
+  resources: translations,
   lng: 'pt',
+  interpolation: {
+    escapeValue: false, // not needed for react!!
+  },
 });
 
 export default i18n;
