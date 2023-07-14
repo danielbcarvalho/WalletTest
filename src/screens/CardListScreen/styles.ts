@@ -9,5 +9,5 @@ export const Container = styled.TouchableOpacity`
 export const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;
-  color: ${({ theme }) => theme.pallete.text.default};
+  color: ${({ theme }) => theme.pallete.textOnBackground.default};
 `;

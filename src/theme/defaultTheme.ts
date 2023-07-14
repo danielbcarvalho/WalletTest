@@ -20,54 +20,66 @@ export const defaultTheme: DefaultTheme = {
     background: {
       default: '#142995',
       overlay: '#EEEEEE',
-      disabled: '#EEEEEE',
-      blackCard: '#111111',
-      greenCard: '#A5FF32',
-      input: '#FFF',
-      info: '#12C2E9',
     },
     textOnBackground: {
       default: '#FFF',
-      greenCard: '#142995',
-      info: '#FFF',
-      disabled: '#BBBBBB',
-    },
-    icon: {
-      default: '#282828',
-    },
-    text: {
-      default: '#000',
-      grayDarker: '#7a7a7a',
+      overlay: '#142995',
     },
   },
   typography: {
     h1: {
-      fontFamily: 'PT Sans Caption',
+      fontFamily: 'PTSans-Caption',
       fontSize: '28px',
+      lineHeight: '42px',
     },
     h2: {
-      fontFamily: 'PT Sans Caption',
+      fontFamily: 'PTSans-Caption',
       fontSize: '26px',
+      lineHeight: '38px',
     },
     h3: {
-      fontFamily: 'PT Sans Caption',
+      fontFamily: 'PTSansCaption',
       fontSize: '22px',
+      lineHeight: '34px',
     },
     h4: {
-      fontFamily: 'PT Sans',
+      fontFamily: 'PTSans-Regular',
       fontSize: '20px',
+      lineHeight: '32px',
     },
     h5: {
-      fontFamily: 'PT Sans',
+      fontFamily: 'PTSans-Regular',
       fontSize: '18px',
+      lineHeight: '30px',
     },
     p: {
-      fontFamily: 'PT Sans',
+      fontFamily: 'PTSans-Regular',
       fontSize: '16px',
+      lineHeight: '28px',
     },
     pSmall: {
-      fontFamily: 'PT Sans',
+      fontFamily: 'PTSans-Regular',
       fontSize: '14px',
+      lineHeight: '26px',
+    },
+  },
+  components: {
+    button: {
+      radius: '12px',
+      fontFamily: 'PTSans-Regular',
+      fontSize: '18px',
+      primary: {
+        backgroundColor: '#12C2E9',
+        color: '#FFFFFF',
+      },
+      secondary: {
+        backgroundColor: '#A5FF32',
+        color: '#142995',
+      },
+      disabled: {
+        backgroundColor: '#EEEEEE',
+        color: '#BBBBBB',
+      },
     },
   },
 };

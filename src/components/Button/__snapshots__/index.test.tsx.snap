@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component matches snapshot 1`] = `
+<View
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": false,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={false}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    {
+      "alignItems": "center",
+      "alignSelf": "stretch",
+      "backgroundColor": "#12C2E9",
+      "borderBottomLeftRadius": 12,
+      "borderBottomRightRadius": 12,
+      "borderTopLeftRadius": 12,
+      "borderTopRightRadius": 12,
+      "justifyContent": "center",
+      "marginBottom": 10,
+      "marginLeft": 0,
+      "marginRight": 0,
+      "marginTop": 10,
+      "maxHeight": 56,
+      "minHeight": 56,
+      "opacity": 1,
+      "paddingBottom": 10,
+      "paddingLeft": 20,
+      "paddingRight": 20,
+      "paddingTop": 10,
+    }
+  }
+  testID="multipurpose-button"
+>
+  <Text
+    style={
+      {
+        "color": "#FFFFFF",
+        "fontFamily": "PTSans-Regular",
+        "fontSize": 18,
+      }
+    }
+    type="primary"
+  >
+    Default Button
+  </Text>
+</View>
+`;
