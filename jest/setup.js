@@ -11,3 +11,6 @@ jest.mock('styled-components', () => {
     },
   };
 });
+jest.mock('react-i18next', () => ({
+  useTranslation: () => ({ t: key => key }),
+}));

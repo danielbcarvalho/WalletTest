@@ -6,6 +6,7 @@ export const translations = {
     translation: {
       'my cards': 'meus cartões',
       'register card': 'cadastrar cartão',
+      'Wallet Test': 'Wallet Test',
     },
   },
 };

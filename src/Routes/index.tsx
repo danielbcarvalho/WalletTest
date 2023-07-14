@@ -1,13 +1,16 @@
 import 'react-native-gesture-handler';
+
 import * as React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 
-import CardList from '../screens/MyCardsScreen';
-import CardRegistration from '../screens/RegisterRegistrationScreen';
+import Home from '../screens/HomeScreen';
+import CardList from '../screens/CardListScreen';
+import CardRegistration from '../screens/CardRegistrationScreen';
 
 export type ParamsList = {
   CardList: undefined;
   CardRegistration: undefined;
+  Home: undefined;
 };
 
 const screenOptions = {
@@ -18,7 +21,8 @@ const AppStack = createStackNavigator<ParamsList>();
 
 export default function Routes() {
   return (
-    <AppStack.Navigator initialRouteName="CardList">
+    <AppStack.Navigator initialRouteName="Home">
+      <AppStack.Screen name="Home" component={Home} options={screenOptions} />
       <AppStack.Screen
         name="CardList"
         component={CardList}
