@@ -109,6 +109,31 @@ export const defaultTheme: DefaultTheme = {
         },
       },
     },
+    card: {
+      black: {
+        backgroundColor: '#000000',
+        color: '#FFFFFF',
+      },
+      green: {
+        backgroundColor: '#A5FF32',
+        color: '#3F3F3F',
+      },
+      title: {
+        fontFamily: 'PTSans-Regular',
+        fontSize: '18px',
+        lineHeight: '20px',
+      },
+      name: {
+        fontFamily: 'PTSans-Regular',
+        fontSize: '16px',
+        lineHeight: '18px',
+      },
+      text: {
+        fontFamily: 'PTSans-Regular',
+        fontSize: '14px',
+        lineHeight: '16px',
+      },
+    },
   },
 };
 

@@ -83,6 +83,32 @@ declare module 'styled-components/native' {
     };
   }
 
+  interface CardProps {
+    black: {
+      backgroundColor: string;
+      color: string;
+    };
+    green: {
+      backgroundColor: string;
+      color: string;
+    };
+    title: {
+      fontFamily: string;
+      fontSize: string;
+      lineHeight: string;
+    };
+    name: {
+      fontFamily: string;
+      fontSize: string;
+      lineHeight: string;
+    };
+    text: {
+      fontFamily: string;
+      fontSize: string;
+      lineHeight: string;
+    };
+  }
+
   export interface DefaultTheme {
     pallete: PalleteProps;
     typography: TipographyProps;
@@ -90,6 +116,7 @@ declare module 'styled-components/native' {
       button: ButtonProps;
       input: InputProps;
       header: Header;
+      card: CardProps;
     };
   }
 }

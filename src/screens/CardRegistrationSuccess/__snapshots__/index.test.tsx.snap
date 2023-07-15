@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardRegistrationSuccess render correctly 1`] = `
+<RNCSafeAreaView
+  edges={
+    {
+      "bottom": "additive",
+      "left": "additive",
+      "right": "additive",
+      "top": "additive",
+    }
+  }
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#142995",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "justifyContent": "center",
+      "paddingBottom": 10,
+      "paddingLeft": 30,
+      "paddingRight": 30,
+      "paddingTop": 10,
+    }
+  }
+>
+  <View
+    style={
+      {
+        "backgroundColor": "#EEEEEE",
+        "borderBottomLeftRadius": 50,
+        "borderBottomRightRadius": 50,
+        "height": 230,
+        "opacity": 0.2,
+        "position": "absolute",
+        "right": 120,
+        "top": -70,
+        "transform": [
+          {
+            "rotate": "-39.93deg",
+          },
+        ],
+        "width": 370,
+      }
+    }
+    top={true}
+  />
+  <View
+    style={
+      {
+        "backgroundColor": "#EEEEEE",
+        "borderBottomLeftRadius": 50,
+        "borderBottomRightRadius": 50,
+        "bottom": -70,
+        "height": 230,
+        "left": 120,
+        "opacity": 0.2,
+        "position": "absolute",
+        "transform": [
+          {
+            "rotate": "139deg",
+          },
+        ],
+        "width": 370,
+      }
+    }
+  />
+  <Text
+    style={
+      {
+        "color": "#FFF",
+        "fontFamily": "PTSans-Caption",
+        "fontSize": 28,
+        "lineHeight": 52,
+      }
+    }
+  />
+  <Text
+    style={
+      {
+        "color": "#FFF",
+        "fontSize": 20,
+      }
+    }
+  />
+  <View
+    style={
+      {
+        "marginBottom": 20,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 30,
+        "width": "100%",
+      }
+    }
+  >
+    <View
+      accessibilityState={
+        {
+          "busy": undefined,
+          "checked": undefined,
+          "disabled": undefined,
+          "expanded": undefined,
+          "selected": undefined,
+        }
+      }
+      accessibilityValue={
+        {
+          "max": undefined,
+          "min": undefined,
+          "now": undefined,
+          "text": undefined,
+        }
+      }
+      accessible={true}
+      collapsable={false}
+      focusable={false}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        {
+          "alignItems": "flex-start",
+          "backgroundColor": "#000000",
+          "borderBottomLeftRadius": 16,
+          "borderBottomRightRadius": 16,
+          "borderTopLeftRadius": 16,
+          "borderTopRightRadius": 16,
+          "display": "flex",
+          "gap": 10,
+          "height": 180,
+          "justifyContent": "space-around",
+          "opacity": 1,
+          "paddingBottom": 20,
+          "paddingLeft": 20,
+          "paddingRight": 20,
+          "paddingTop": 20,
+          "width": "100%",
+        }
+      }
+    >
+      <Text
+        kind="black"
+        style={
+          {
+            "color": "#FFFFFF",
+            "fontFamily": "PTSans-Regular",
+            "fontSize": 18,
+            "lineHeight": 20,
+          }
+        }
+      >
+        Black Card
+      </Text>
+      <View
+        style={
+          {
+            "alignItems": "flex-start",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "flex-start",
+          }
+        }
+      >
+        <Text
+          kind="black"
+          style={
+            {
+              "color": "#FFFFFF",
+              "fontFamily": "PTSans-Regular",
+              "fontSize": 16,
+              "lineHeight": 18,
+            }
+          }
+        >
+          John Doe
+        </Text>
+        <Text
+          kind="black"
+          style={
+            {
+              "color": "#FFFFFF",
+              "fontFamily": "PTSans-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          **** **** **** 8727
+        </Text>
+        <Text
+          kind="black"
+          style={
+            {
+              "color": "#FFFFFF",
+              "fontFamily": "PTSans-Regular",
+              "fontSize": 14,
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
+          }
+        >
+          undefined 12/24
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    accessibilityState={
+      {
+        "busy": undefined,
+        "checked": undefined,
+        "disabled": false,
+        "expanded": undefined,
+        "selected": undefined,
+      }
+    }
+    accessibilityValue={
+      {
+        "max": undefined,
+        "min": undefined,
+        "now": undefined,
+        "text": undefined,
+      }
+    }
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "backgroundColor": "#12C2E9",
+        "borderBottomLeftRadius": 12,
+        "borderBottomRightRadius": 12,
+        "borderTopLeftRadius": 12,
+        "borderTopRightRadius": 12,
+        "justifyContent": "center",
+        "marginBottom": 10,
+        "marginLeft": 0,
+        "marginRight": 0,
+        "marginTop": 10,
+        "maxHeight": 56,
+        "minHeight": 56,
+        "opacity": 1,
+        "paddingBottom": 10,
+        "paddingLeft": 20,
+        "paddingRight": 20,
+        "paddingTop": 10,
+      }
+    }
+    testID="multipurpose-button"
+  >
+    <Text
+      style={
+        {
+          "color": "#FFFFFF",
+          "fontFamily": "PTSans-Regular",
+          "fontSize": 18,
+        }
+      }
+      type="primary"
+    />
+  </View>
+</RNCSafeAreaView>
+`;

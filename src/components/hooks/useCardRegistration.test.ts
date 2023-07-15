@@ -19,9 +19,9 @@ describe('useCardRegistration hook', () => {
   const mockMutateAsync = jest.fn();
 
   const mockData = {
-    card: '5503 2328 4377 9802',
+    number: '5503 2328 4377 9802',
     name: 'John Doe',
-    date: '12/24',
+    expiry: '12/24',
     cvv: '123',
   };
 
