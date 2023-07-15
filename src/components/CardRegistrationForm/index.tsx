@@ -18,9 +18,9 @@ interface Props {
 }
 
 interface FormValues {
-  card: string;
+  number: string;
   name: string;
-  date: string;
+  expiry: string;
   cvv: string;
 }
 
@@ -28,9 +28,9 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
   const { t } = useTranslation();
   const { control, handleSubmit, formState } = useForm<FormValues>({
     defaultValues: {
-      card: '',
+      number: '',
       name: '',
-      date: '',
+      expiry: '',
       cvv: '',
     },
     resolver: yupResolver(cardFormValidationSchema),
@@ -39,9 +39,9 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
   const onSubmit = (data: FormValues) => {
     const card: Card = {
       name: data.name,
-      card: data.card,
+      number: data.number,
       cvv: data.cvv,
-      date: data.date,
+      expiry: data.expiry,
     };
     onCardRegisterForm(card);
   };
@@ -62,7 +62,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
             mask={Masks.CREDIT_CARD}
           />
         )}
-        name="card"
+        name="number"
       />
       <Controller
         control={control}
@@ -95,7 +95,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
               mask={getMaskDateMMYY}
             />
           )}
-          name="date"
+          name="expiry"
         />
         <Controller
           control={control}

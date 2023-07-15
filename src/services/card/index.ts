@@ -9,16 +9,24 @@ async function list(): Promise<Card[]> {
     const { data } = await api.get<Card[]>('/cards');
     return data;
   } catch (error: unknown) {
-    throw new Error((error as AxiosError).message);
+    if (error instanceof AxiosError && error.response?.data) {
+      throw new Error(error.response.data);
+    } else {
+      throw new Error('Internal Server Error');
+    }
   }
 }
 
-async function register(card: Card): Promise<Card[]> {
+async function register(card: Card): Promise<Card> {
   try {
-    const { data } = await api.post<Card[]>('/cards', card);
+    const { data } = await api.post<Card>('/cards', card);
     return data;
   } catch (error: unknown) {
-    throw new Error((error as AxiosError).message);
+    if (error instanceof AxiosError && error.response?.data) {
+      throw new Error(error.response.data);
+    } else {
+      throw new Error('Internal Server Error');
+    }
   }
 }
 

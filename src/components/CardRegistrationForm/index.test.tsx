@@ -26,9 +26,9 @@ describe('CardRegistrationForm', () => {
     });
 
     expect(mockOnCardRegisterForm).toHaveBeenCalledWith({
-      card: '5365 2282 2673 0773', // valid card number
+      number: '5365 2282 2673 0773', // valid card number
       name: 'John Doe',
-      date: '12/23',
+      expiry: '12/23',
       cvv: '123',
     });
   });

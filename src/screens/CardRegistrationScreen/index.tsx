@@ -3,8 +3,8 @@ import { Platform } from 'react-native';
 
 import BrandTitle from '../../components/Title';
 import CardRegistrationForm from '../../components/CardRegistrationForm';
-import StyledBackgroundContainer from '../../components/StyledBackgoundContainer';
 import { useCardRegistration } from '../../components/hooks/useCardRegistration';
+import StyledBackgroundContainer from '../../components/StyledBackgoundContainer';
 
 import { KeyboardAvoidingScrollView, StyledScrollView } from './styles';
 

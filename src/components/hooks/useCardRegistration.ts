@@ -13,10 +13,10 @@ type CardRegistrationScreenProps = NativeStackNavigationProp<
 >;
 
 interface CardRegistrationFormData {
-  card: string;
-  name: string;
-  date: string;
   cvv: string;
+  name: string;
+  number: string;
+  expiry: string;
 }
 
 export function useCardRegistration() {
@@ -24,9 +24,9 @@ export function useCardRegistration() {
   const queryClient = useQueryClient();
 
   const registerCard = useMutation(cardService.register, {
-    onSuccess: () => {
+    onSuccess: data => {
       queryClient.invalidateQueries([QueryKeys.CARD_LIST]);
-      navigate('CardList');
+      navigate('CardRegistrationSuccess', { card: data });
     },
     onError: (error: any) => {
       Alert.alert('Error', error.message);

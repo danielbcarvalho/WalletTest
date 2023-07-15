@@ -14,7 +14,7 @@ export const translations = {
       advance: 'avançar',
       register: 'cadastro',
       'successfully registered card': 'cartão cadastrado com sucesso',
-      validity: 'validade',
+      validity: 'Validade',
       'use this card': 'usar este cartão',
       'pay with this card': 'pagar com este cartão',
       'go back': 'voltar',
