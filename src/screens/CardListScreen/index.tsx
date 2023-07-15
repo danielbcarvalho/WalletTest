@@ -1,5 +1,6 @@
 import * as React from 'react';
-// import { useQuery } from '@tanstack/react-query';
+import { Alert } from 'react-native';
+import { useQuery } from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
@@ -7,41 +8,29 @@ import { useTranslation } from 'react-i18next';
 
 import { ParamsList } from '../../Routes';
 import { Container, Title } from './styles';
+import { cardService } from '../../services/card';
+import { QueryKeys } from '../../services/QueryKeys';
 
 type CardListScreenProps = NativeStackNavigationProp<ParamsList, 'CardList'>;
 
 function CardList() {
-  // const cards = useQuery(['cards'], async () => {
-  //   return {
-  //     cards: [
-  //       {
-  //         id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
-  //         number: '3529 5435 3355 8727',
-  //         cvv: '317',
-  //         name: 'John Doe',
-  //       },
-  //     ],
-  //   };
-  // });
-  const cards = {
-    cards: [
-      {
-        id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
-        number: '3529 5435 3355 8727',
-        cvv: '317',
-        name: 'John Doe',
-      },
-    ],
-  };
+  const { data: cards, isError } = useQuery([QueryKeys.CARD_LIST], () =>
+    cardService.list(),
+  );
 
   const { navigate } = useNavigation<CardListScreenProps>();
   const { t } = useTranslation();
+
+  if (isError) {
+    Alert.alert('Something went wrong');
+    navigate('Home');
+    return null;
+  }
+
   return (
-    <Container
-      style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}
-      onPress={() => navigate('CardRegistration')}>
+    <Container onPress={() => navigate('CardRegistration')}>
       <Title>{t('my cards')}</Title>
-      <Title>{cards?.cards.map(card => card.name)}</Title>
+      <Title>{cards?.map(card => card?.name).join(', ')}</Title>
     </Container>
   );
 }
