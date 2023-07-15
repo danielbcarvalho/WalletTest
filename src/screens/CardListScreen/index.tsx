@@ -8,8 +8,7 @@ import { useTranslation } from 'react-i18next';
 import { ParamsList } from '../../Routes';
 import { Container, Title } from './styles';
 
-// TODO: estudar diferenca type e interface
-type MyCardsNav = NativeStackNavigationProp<ParamsList, 'CardList'>;
+type CardListScreenProps = NativeStackNavigationProp<ParamsList, 'CardList'>;
 
 function CardList() {
   // const cards = useQuery(['cards'], async () => {
@@ -35,7 +34,7 @@ function CardList() {
     ],
   };
 
-  const { navigate } = useNavigation<MyCardsNav>();
+  const { navigate } = useNavigation<CardListScreenProps>();
   const { t } = useTranslation();
   return (
     <Container
