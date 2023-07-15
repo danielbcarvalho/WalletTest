@@ -17,6 +17,7 @@ export const translations = {
       validity: 'validade',
       'use this card': 'usar este cartão',
       'pay with this card': 'pagar com este cartão',
+      'go back': 'voltar',
     },
   },
 };

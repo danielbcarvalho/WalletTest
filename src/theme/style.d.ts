@@ -69,12 +69,27 @@ declare module 'styled-components/native' {
       overlay: string;
     };
   }
+
+  interface Header {
+    title: HeaderTitle;
+  }
+
+  interface HeaderTitle extends TipographyKindProps {
+    register: {
+      color: string;
+    };
+    cardList: {
+      color: string;
+    };
+  }
+
   export interface DefaultTheme {
     pallete: PalleteProps;
     typography: TipographyProps;
     components: {
       button: ButtonProps;
       input: InputProps;
+      header: Header;
     };
   }
 }

@@ -96,6 +96,19 @@ export const defaultTheme: DefaultTheme = {
       borderRadius: '12px',
       padding: '16px',
     },
+    header: {
+      title: {
+        fontFamily: 'PTSans-Caption',
+        fontSize: '22px',
+        lineHeight: '24px',
+        register: {
+          color: '#142995',
+        },
+        cardList: {
+          color: '#12C2E9',
+        },
+      },
+    },
   },
 };
 
