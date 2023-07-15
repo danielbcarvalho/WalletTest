@@ -4,6 +4,7 @@ export const Container = styled.TouchableOpacity`
   flex: 1;
   align-items: center;
   justify-content: center;
+  background-color: ${({ theme }) => theme.pallete.background.default};
 `;
 
 export const Title = styled.Text`

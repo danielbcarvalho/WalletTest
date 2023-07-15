@@ -6,7 +6,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 import { Button } from '../Button';
 import InputCustom from '../InputCustom';
-import { CardProps } from '../../screens/CardRegistrationScreen';
+import { Card } from '../../models/CardModels';
 
 import { BottomInputWrapper } from './styles';
 import { cardFormValidationSchema } from './schema';
@@ -14,7 +14,7 @@ import { getMaskCVV, getMaskDateMMYY } from '../../utils/mask-input';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  onCardRegisterForm: (card: CardProps) => void;
+  onCardRegisterForm: (card: Card) => void;
 }
 
 interface FormValues {
@@ -37,7 +37,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
   });
 
   const onSubmit = (data: FormValues) => {
-    const card: CardProps = {
+    const card: Card = {
       name: data.name,
       card: data.card,
       cvv: data.cvv,
