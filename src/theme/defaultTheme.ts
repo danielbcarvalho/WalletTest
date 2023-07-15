@@ -68,6 +68,7 @@ export const defaultTheme: DefaultTheme = {
       radius: '12px',
       fontFamily: 'PTSans-Regular',
       fontSize: '18px',
+      lineHeight: '28px',
       primary: {
         backgroundColor: '#12C2E9',
         color: '#FFFFFF',
@@ -80,6 +81,20 @@ export const defaultTheme: DefaultTheme = {
         backgroundColor: '#EEEEEE',
         color: '#BBBBBB',
       },
+    },
+    input: {
+      label: {
+        fontFamily: 'PTSans-Regular',
+        fontSize: '14px',
+        color: '#FFFFFF',
+        lineHeight: '16px',
+      },
+      fontFamily: 'PTSans-Regular',
+      fontSize: '16px',
+      color: '#111',
+      backgroundColor: '#EEEEEE',
+      borderRadius: '12px',
+      padding: '16px',
     },
   },
 };

@@ -8,7 +8,7 @@ import { render } from '../../jest/test-utils';
 import Routes from './index';
 
 describe('Routes', () => {
-  test('CardRegistration screen exists', async () => {
+  test('HomeScreen exists', async () => {
     const component = (
       <NavigationContainer>
         <Routes />
@@ -18,23 +18,12 @@ describe('Routes', () => {
     render(component);
 
     await waitFor(() => {
-      const title = screen.getByText('register card');
+      const title = screen.getByText('Wallet Test');
+      const button1 = screen.getByText('my cards');
+      const button2 = screen.getByText('register card');
       expect(title).toBeTruthy();
-    });
-  });
-
-  test('CardList screen exists', async () => {
-    const component = (
-      <NavigationContainer>
-        <Routes />
-      </NavigationContainer>
-    );
-
-    render(component);
-
-    await waitFor(() => {
-      const title = screen.getByText('my cards');
-      expect(title).toBeTruthy();
+      expect(button1).toBeTruthy();
+      expect(button2).toBeTruthy();
     });
   });
 });
