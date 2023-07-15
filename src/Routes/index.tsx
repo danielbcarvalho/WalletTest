@@ -27,7 +27,7 @@ export default function Routes() {
         headerTransparent: true,
         header: () => <Header type="cardList" />,
       }}
-      initialRouteName="CardRegistration">
+      initialRouteName="Home">
       <AppStack.Screen
         name="Home"
         component={Home}

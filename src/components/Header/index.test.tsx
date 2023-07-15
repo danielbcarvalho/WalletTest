@@ -1,20 +1,32 @@
 import React from 'react';
-// import { fireEvent } from '@testing-library/react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+import { fireEvent } from '@testing-library/react-native';
 
 import { render } from '../../../jest/test-utils';
 
 import HeaderButton from './';
-// import Routes from '../../Routes';
+
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: jest.fn(),
+}));
 
 describe('HeaderButton', () => {
+  let navigateMock: jest.Mock;
+  let goBackMock: jest.Mock;
+
+  beforeEach(() => {
+    navigateMock = jest.fn();
+    goBackMock = jest.fn().mockReturnValue(true);
+    useNavigation.mockReturnValue({
+      navigate: navigateMock,
+      goBack: goBackMock,
+    });
+  });
+
   test('render correctly with cardList type', () => {
-    const component = (
-      <NavigationContainer>
-        <HeaderButton type="cardList" />,
-      </NavigationContainer>
+    const { getByLabelText, getByText, queryByLabelText } = render(
+      <HeaderButton type="cardList" />,
     );
-    const { getByLabelText, getByText, queryByLabelText } = render(component);
 
     const goBackButton = getByLabelText('go back');
     expect(goBackButton).toBeTruthy();
@@ -27,13 +39,9 @@ describe('HeaderButton', () => {
   });
 
   test('render correctly with register type', () => {
-    const component = (
-      <NavigationContainer>
-        <HeaderButton type="register" />,
-      </NavigationContainer>
+    const { getByText, getByLabelText, queryByTestId } = render(
+      <HeaderButton type="register" />,
     );
-
-    const { getByText, getByLabelText, queryByTestId } = render(component);
 
     const goBackButton = getByLabelText('go back');
     expect(goBackButton).toBeTruthy();
@@ -48,26 +56,16 @@ describe('HeaderButton', () => {
   });
 
   test('call handleGoBack when go back button is pressed', () => {
-    // TODO: get this test to work, problem with NavigationContainer onPress
-    // const component = (
-    //   <NavigationContainer>
-    //     <Routes>
-    //       <HeaderButton type="cardList" />
-    //     </Routes>
-    //   </NavigationContainer>
-    // );
-    // const handleGoBack = jest.fn();
-    // const { getByLabelText } = render(component);
+    // TODO: get this test to work, problem with goBackMock
+    // const { getByLabelText } = render(<HeaderButton type="cardList" />);
     // const goBackButton = getByLabelText('go back');
     // fireEvent.press(goBackButton);
-    // expect(handleGoBack).toHaveBeenCalledTimes(1);
+    // expect(goBackMock).toHaveBeenCalledTimes(1);
   });
 
-  it('should call handleCardRegistration when register button is pressed', () => {
-    // TODO: get this test to work, problem with NavigationContainer onPress
-    //   const handleCardRegistration = jest.fn();
-    //   const { getByTestId } = render(<HeaderButton type="register" />);
-    //   fireEvent.press(getByTestId('button-register'));
-    //   expect(handleCardRegistration).toHaveBeenCalledTimes(1);
+  test('navigates to CardRegistrationScreen on register card button press', () => {
+    const { getByLabelText } = render(<HeaderButton type="register" />);
+    fireEvent.press(getByLabelText('register card'));
+    expect(navigateMock).toHaveBeenCalledWith('CardRegistration');
   });
 });

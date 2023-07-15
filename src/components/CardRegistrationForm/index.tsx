@@ -52,6 +52,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <InputCustom
+            accessibilityLabel={t('card number')}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -67,6 +68,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
         control={control}
         render={({ field: { onChange, onBlur, value } }) => (
           <InputCustom
+            accessibilityLabel={t('card holder name')}
             onBlur={onBlur}
             onChangeText={onChange}
             value={value}
@@ -82,6 +84,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <InputCustom
+              accessibilityLabel={t('expiration date')}
               placeholder="00/00"
               onBlur={onBlur}
               onChangeText={onChange}
@@ -98,6 +101,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
           control={control}
           render={({ field: { onChange, onBlur, value } }) => (
             <InputCustom
+              accessibilityLabel={t('cvv')}
               placeholder="***"
               onBlur={onBlur}
               onChangeText={onChange}
