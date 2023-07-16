@@ -11,6 +11,7 @@ import Header from '../components/Header';
 import { Card } from '../models/CardModels';
 import CardList from '../screens/CardListScreen';
 import CardRegistration from '../screens/CardRegistrationScreen';
+import WalletAnimatedScreen from '../screens/WalletAnimatedScreen';
 import CardRegistrationSuccess from '../screens/CardRegistrationSuccess';
 
 export type ParamsList = {
@@ -20,6 +21,7 @@ export type ParamsList = {
   CardRegistrationSuccess: {
     card: Card;
   };
+  WalletAnimatedScreen: undefined;
 };
 
 const AppStack = createStackNavigator<ParamsList>();
@@ -52,6 +54,13 @@ export default function Routes() {
       <AppStack.Screen
         name="CardRegistrationSuccess"
         component={CardRegistrationSuccess}
+      />
+      <AppStack.Screen
+        name="WalletAnimatedScreen"
+        component={WalletAnimatedScreen}
+        options={{
+          headerShown: false,
+        }}
       />
     </AppStack.Navigator>
   );
