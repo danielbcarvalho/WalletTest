@@ -8,7 +8,6 @@ type Props = {
 };
 
 export const Container = styled(TouchableOpacity)<Props>`
-  /* flex: 1; */
   align-self: stretch;
 
   padding: 10px 20px;

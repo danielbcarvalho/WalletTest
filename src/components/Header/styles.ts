@@ -1,3 +1,4 @@
+import { css } from 'styled-components';
 import styled from 'styled-components/native';
 
 interface Props {
@@ -32,11 +33,34 @@ export const RegisterIcon = styled.Image`
   resize-mode: contain;
 `;
 
-export const Container = styled.View`
+export const RowContainer = styled.View<Props>`
+  flex: 1;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding-left: 20px;
   padding-right: 30px;
-  margin-top: 25px;
+  padding-top: 30px;
+  ${({ type }) =>
+    type === 'register' &&
+    css`
+      background-color: #ffffff;
+      shadow-color: #000;
+      shadow-offset: 0px 2px;
+      shadow-opacity: 0.3;
+      shadow-radius: 4px;
+      elevation: 4;
+    `}
+`;
+
+export const Container = styled.View<Props>`
+  ${({ theme, type }) => css`
+    background-color: ${type === 'register' &&
+    theme.components.header.title.register.backgroundColor};
+
+    height: ${type === 'register' ? '160px' : 'auto'};
+    border-radius: ${type === 'register' ? '50px' : '0px'};
+  `}
+  flex: 1;
 `;

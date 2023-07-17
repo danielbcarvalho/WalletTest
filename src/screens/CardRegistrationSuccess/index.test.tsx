@@ -31,10 +31,11 @@ describe('CardRegistrationSuccess', () => {
       params: {
         card: {
           id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
-          number: '3529 5435 3355 8727',
-          cvv: '317',
+          number: '3529 5435 3355 8720',
+          cvv: '017',
           name: 'John Doe',
-          expiry: '12/24',
+          expiry: '12/23',
+          kind: 'black',
         },
       },
     });

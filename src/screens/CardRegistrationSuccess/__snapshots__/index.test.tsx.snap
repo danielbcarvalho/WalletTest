@@ -96,33 +96,7 @@ exports[`CardRegistrationSuccess render correctly 1`] = `
     }
   >
     <View
-      accessibilityState={
-        {
-          "busy": undefined,
-          "checked": undefined,
-          "disabled": undefined,
-          "expanded": undefined,
-          "selected": undefined,
-        }
-      }
-      accessibilityValue={
-        {
-          "max": undefined,
-          "min": undefined,
-          "now": undefined,
-          "text": undefined,
-        }
-      }
-      accessible={true}
-      collapsable={false}
-      focusable={false}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
+      kind="black"
       style={
         {
           "alignItems": "flex-start",
@@ -135,7 +109,6 @@ exports[`CardRegistrationSuccess render correctly 1`] = `
           "gap": 10,
           "height": 180,
           "justifyContent": "space-around",
-          "opacity": 1,
           "paddingBottom": 20,
           "paddingLeft": 20,
           "paddingRight": 20,
@@ -192,7 +165,7 @@ exports[`CardRegistrationSuccess render correctly 1`] = `
             }
           }
         >
-          **** **** **** 8727
+          **** **** **** 8720
         </Text>
         <Text
           kind="black"
@@ -206,7 +179,7 @@ exports[`CardRegistrationSuccess render correctly 1`] = `
             }
           }
         >
-          undefined 12/24
+          undefined 12/23
         </Text>
       </View>
     </View>

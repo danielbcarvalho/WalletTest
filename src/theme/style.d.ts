@@ -77,6 +77,7 @@ declare module 'styled-components/native' {
   interface HeaderTitle extends TipographyKindProps {
     register: {
       color: string;
+      backgroundColor: string;
     };
     cardList: {
       color: string;
