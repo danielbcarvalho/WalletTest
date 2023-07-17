@@ -33,14 +33,14 @@ async function register(card: Card): Promise<Card> {
   }
 }
 
-async function listWithDelay(): Promise<Card[]> {
-  return new Promise(resolve => {
-    setTimeout(async () => {
-      const { data } = await api.get<Card[]>('/cards');
-      resolve(data);
-    }, 3000); // 3 seconds of delay to simulate loading
-  });
-}
+// async function listWithDelay(): Promise<Card[]> {
+//   return new Promise(resolve => {
+//     setTimeout(async () => {
+//       const { data } = await api.get<Card[]>('/cards');
+//       resolve(data);
+//     }, 3000); // 3 seconds of delay to simulate loading
+//   });
+// }
 
 export const cardService = {
   list,

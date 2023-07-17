@@ -103,6 +103,7 @@ export const defaultTheme: DefaultTheme = {
         lineHeight: '24px',
         register: {
           color: '#142995',
+          backgroundColor: '#FFFFFF',
         },
         cardList: {
           color: '#12C2E9',

@@ -46,7 +46,6 @@ export default function Routes() {
         name="CardList"
         component={CardList}
         options={{
-          headerTransparent: false,
           header: () => <Header type="register" />,
         }}
       />
@@ -59,6 +58,7 @@ export default function Routes() {
         name="WalletAnimatedScreen"
         component={WalletAnimatedScreen}
         options={{
+          animationTypeForReplace: 'pop',
           headerShown: false,
         }}
       />

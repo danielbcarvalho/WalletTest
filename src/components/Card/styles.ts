@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 interface Props {
   kind: 'black' | 'green';
 }
-export const Container = styled.TouchableOpacity<Props>`
+export const Container = styled.View<Props>`
   border-radius: 16px;
   display: flex;
   width: 100%;

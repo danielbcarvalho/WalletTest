@@ -1,12 +1,14 @@
-import * as React from 'react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
-import { useTranslation } from 'react-i18next';
-
 import { ParamsList } from '../../Routes';
-import { Container, Title } from './styles';
+import { Card } from '../../models/CardModels';
+import CardsSelect from '../../components/CardsSelect';
 import { useCardList } from '../../components/hooks/useCardList';
+
+import { Container } from './styles';
 
 export type CardListScreenProps = NativeStackNavigationProp<
   ParamsList,
@@ -14,15 +16,21 @@ export type CardListScreenProps = NativeStackNavigationProp<
 >;
 
 function CardList() {
-  const { cards } = useCardList();
-
-  const { navigate } = useNavigation<CardListScreenProps>();
+  const { cards, isLoading } = useCardList();
   const { t } = useTranslation();
+  const { navigate } = useNavigation<CardListScreenProps>();
+
+  if (isLoading) {
+    return null;
+  }
+
+  function onUseCard(selectedCard: Card) {
+    console.log('cartão selecionado', selectedCard);
+  }
 
   return (
-    <Container onPress={() => navigate('CardRegistration')}>
-      <Title>{t('my cards')}</Title>
-      <Title>{cards?.map(card => card?.name).join(', ')}</Title>
+    <Container>
+      <CardsSelect cards={cards ?? []} onUseCard={onUseCard} />
     </Container>
   );
 }

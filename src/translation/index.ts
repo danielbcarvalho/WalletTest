@@ -18,6 +18,8 @@ export const translations = {
       'use this card': 'usar este cartão',
       'pay with this card': 'pagar com este cartão',
       'go back': 'voltar',
+      'ops, no card registered': 'ops, nenhum cartão cadastrado',
+      'My cards': 'Meus cartões',
     },
   },
 };

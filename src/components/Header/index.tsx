@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { ParamsList } from '../../Routes';
+import MyCardExtendedHeader from '../MyCardsTitle';
 
 import {
   Title,
@@ -11,6 +12,7 @@ import {
   Container,
   RegisterIcon,
   DisabledButton,
+  RowContainer,
 } from './styles';
 
 interface HeaderProps {
@@ -38,20 +40,23 @@ function Header({ type }: HeaderProps) {
   const addImageSource = require('../../../assets/images/btnadd.png');
 
   return (
-    <Container>
-      <Button onPress={handleGoBack} accessibilityLabel={t('go back')}>
-        <BackIcon source={goBackImageSource} />
-      </Button>
-      <Title type={type}>{t(title)}</Title>
-      {type === 'register' ? (
-        <Button
-          onPress={handleCardRegistration}
-          accessibilityLabel={t('register card')}>
-          <RegisterIcon source={addImageSource} />
+    <Container type={type}>
+      <RowContainer type={type}>
+        <Button onPress={handleGoBack} accessibilityLabel={t('go back')}>
+          <BackIcon source={goBackImageSource} />
         </Button>
-      ) : (
-        <DisabledButton testID="disabled-button" />
-      )}
+        <Title type={type}>{t(title)}</Title>
+        {type === 'register' ? (
+          <Button
+            onPress={handleCardRegistration}
+            accessibilityLabel={t('register card')}>
+            <RegisterIcon source={addImageSource} />
+          </Button>
+        ) : (
+          <DisabledButton testID="disabled-button" />
+        )}
+      </RowContainer>
+      {type === 'register' && <MyCardExtendedHeader />}
     </Container>
   );
 }
