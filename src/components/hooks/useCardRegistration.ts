@@ -34,7 +34,10 @@ export function useCardRegistration() {
   });
 
   const handleCardRegisterForm = async (data: CardRegistrationFormData) => {
-    await registerCard.mutateAsync(data);
+    await registerCard.mutateAsync({
+      kind: 'black',
+      ...data,
+    });
   };
 
   return handleCardRegisterForm;

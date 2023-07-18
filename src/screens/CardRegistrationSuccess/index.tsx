@@ -6,9 +6,9 @@ import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 
 import Card from '../../components/Card';
 import { ParamsList } from '../../Routes';
-import BrandTitle from '../../components/Title';
 import { Button } from '../../components/Button';
-import StyledBackgroundContainer from '../../components/StyledBackgoundContainer';
+import BrandTitle from '../../components/BrandTitle';
+import StyledBackgroundContainer from '../../components/Containers/StyledBackgoundContainer';
 
 import { Title, CardWrapper } from './styles';
 

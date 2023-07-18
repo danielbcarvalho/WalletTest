@@ -10,6 +10,7 @@ import Home from '../screens/HomeScreen';
 import Header from '../components/Header';
 import { Card } from '../models/CardModels';
 import CardList from '../screens/CardListScreen';
+import CardPayment from '../screens/CardPaymentScreen';
 import CardRegistration from '../screens/CardRegistrationScreen';
 import WalletAnimatedScreen from '../screens/WalletAnimatedScreen';
 import CardRegistrationSuccess from '../screens/CardRegistrationSuccess';
@@ -22,6 +23,7 @@ export type ParamsList = {
     card: Card;
   };
   WalletAnimatedScreen: undefined;
+  CardPayment: undefined;
 };
 
 const AppStack = createStackNavigator<ParamsList>();
@@ -60,6 +62,13 @@ export default function Routes() {
         options={{
           animationTypeForReplace: 'pop',
           headerShown: false,
+        }}
+      />
+      <AppStack.Screen
+        name="CardPayment"
+        component={CardPayment}
+        options={{
+          header: () => <Header type="register" />,
         }}
       />
     </AppStack.Navigator>

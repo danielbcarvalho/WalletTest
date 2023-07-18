@@ -22,6 +22,7 @@ describe('useCardRegistration hook', () => {
     number: '5503 2328 4377 9802',
     name: 'John Doe',
     expiry: '12/24',
+    kind: 'black',
     cvv: '123',
   };
 

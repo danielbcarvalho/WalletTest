@@ -1,7 +1,9 @@
 import React from 'react';
 import { fireEvent, act } from '@testing-library/react-native';
-import CardRegistrationForm from '../CardRegistrationForm';
-import { render } from '../../../jest/test-utils';
+
+import { render } from '../../../../jest/test-utils';
+
+import CardRegistrationForm from '.';
 
 describe('CardRegistrationForm', () => {
   const mockOnCardRegisterForm = jest.fn();
@@ -48,7 +50,8 @@ describe('CardRegistrationForm', () => {
       fireEvent.changeText(getByLabelText('cvv'), '123');
     });
 
-    expect(getByText('advance')).toBeDisabled();
+    const button = getByText('advance');
+    expect(button).toBeDisabled();
   });
 
   test('should NOT be able to submit when an invalid name is entered', async () => {
@@ -69,8 +72,8 @@ describe('CardRegistrationForm', () => {
       fireEvent.changeText(getByLabelText('cvv'), '123');
     });
 
-    // Expect the button to be disabled
-    expect(getByText('advance')).toBeDisabled();
+    const button = getByText('advance');
+    expect(button).toBeDisabled();
   });
 
   test('should NOT be able to submit when an invalid ccv is entered', async () => {
@@ -79,17 +82,14 @@ describe('CardRegistrationForm', () => {
     );
 
     await act(async () => {
-      fireEvent.changeText(
-        getByLabelText('card number'),
-        '5365228226730773', // invalid card number
-      );
+      fireEvent.changeText(getByLabelText('card number'), '5365228226730773');
       fireEvent.changeText(getByLabelText('card holder name'), 'John Doe');
       fireEvent.changeText(getByLabelText('advance'), '1223');
       fireEvent.changeText(getByLabelText('cvv'), 'YY');
     });
 
-    // Expect the button to be disabled
-    expect(getByText('advance')).toBeDisabled();
+    const button = getByText('advance');
+    expect(button).toBeDisabled();
   });
 
   test('should NOT be able to submit when an invalid duodate is entered', async () => {
@@ -98,16 +98,13 @@ describe('CardRegistrationForm', () => {
     );
 
     await act(async () => {
-      fireEvent.changeText(
-        getByLabelText('card number'),
-        '5365228226730773', // invalid card number
-      );
+      fireEvent.changeText(getByLabelText('card number'), '5365228226730773');
       fireEvent.changeText(getByLabelText('card holder name'), 'John Doe');
       fireEvent.changeText(getByLabelText('advance'), '01');
       fireEvent.changeText(getByLabelText('cvv'), '123');
     });
 
-    // Expect the button to be disabled
-    expect(getByText('advance')).toBeDisabled();
+    const button = getByText('advance');
+    expect(button).toBeDisabled();
   });
 });

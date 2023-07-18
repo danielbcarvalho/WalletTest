@@ -20,6 +20,8 @@ export const translations = {
       'go back': 'voltar',
       'ops, no card registered': 'ops, nenhum cartão cadastrado',
       'My cards': 'Meus cartões',
+      'Payment Successful': 'Pagamento realizado com sucesso',
+      Congratulations: 'Parabéns',
     },
   },
 };

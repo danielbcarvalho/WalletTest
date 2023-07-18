@@ -1,3 +1,5 @@
+import { Card } from '../models/CardModels';
+
 // Função auxiliar para validar número de cartão de crédito usando Algoritmo de Luhn
 export function isValidCreditCard(value: string): boolean {
   const sanitizedValue = value.replace(/[- ]/g, '');
@@ -19,4 +21,12 @@ export function isValidCreditCard(value: string): boolean {
   }
 
   return sum % 10 === 0;
+}
+
+export function isCardOnTheTop(index: number, cardsData: Card[]) {
+  return index === topCardIndex(cardsData);
+}
+
+export function topCardIndex(cardsData: any[]) {
+  return cardsData.length - 1;
 }

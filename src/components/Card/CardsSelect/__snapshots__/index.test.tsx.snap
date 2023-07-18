@@ -762,3 +762,33 @@ exports[`CardsCarousel renders correctly with no cards 1`] = `
   ops, no card registered
 </Text>
 `;
+
+exports[`CardsSelect renders correctly with cards 1`] = `
+<Text
+  style={
+    {
+      "color": "#FFF",
+      "fontSize": 16,
+      "lineHeight": 28,
+      "marginTop": 15,
+    }
+  }
+>
+  ops, no card registered
+</Text>
+`;
+
+exports[`CardsSelect renders correctly with no cards 1`] = `
+<Text
+  style={
+    {
+      "color": "#FFF",
+      "fontSize": 16,
+      "lineHeight": 28,
+      "marginTop": 15,
+    }
+  }
+>
+  ops, no card registered
+</Text>
+`;

@@ -4,17 +4,16 @@ import { Masks } from 'react-native-mask-input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, Controller } from 'react-hook-form';
 
-import { Button } from '../Button';
-import InputCustom from '../InputCustom';
-import { Card } from '../../models/CardModels';
+import { Button } from '../../Button';
+import InputCustom from '../../InputCustom';
 
 import { BottomInputWrapper } from './styles';
 import { cardFormValidationSchema } from './schema';
-import { getMaskCVV, getMaskDateMMYY } from '../../utils/mask-input';
+import { getMaskCVV, getMaskDateMMYY } from '../../../utils/mask-input';
 import { useTranslation } from 'react-i18next';
 
 interface Props {
-  onCardRegisterForm: (card: Card) => void;
+  onCardRegisterForm: (card: FormValues) => void;
 }
 
 interface FormValues {
@@ -37,7 +36,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
   });
 
   const onSubmit = (data: FormValues) => {
-    const card: Card = {
+    const card: FormValues = {
       name: data.name,
       number: data.number,
       cvv: data.cvv,

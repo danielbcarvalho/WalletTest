@@ -5,9 +5,9 @@ import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { ParamsList } from '../../Routes';
-import BrandTitle from '../../components/Title';
+import BrandTitle from '../../components/BrandTitle';
 import { Button } from '../../components/Button';
-import StyledBackgroundContainer from '../../components/StyledBackgoundContainer';
+import StyledBackgroundContainer from '../../components/Containers/StyledBackgoundContainer';
 
 type HomeNav = NativeStackNavigationProp<ParamsList, 'Home'>;
 

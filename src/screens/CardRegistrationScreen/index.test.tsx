@@ -5,9 +5,8 @@ import { useNavigation } from '@react-navigation/native';
 import { fireEvent, waitFor } from '@testing-library/react-native';
 
 import { render } from '../../../jest/test-utils';
+import CardRegistrationForm from '../../components/Card/CardRegistrationForm';
 import { useCardRegistration } from '../../components/hooks/useCardRegistration';
-
-import CardRegistrationForm from '../../components/CardRegistrationForm';
 
 import CardRegistration from './';
 
