@@ -17,6 +17,7 @@ export type WalletAnimatedScreenProps = NativeStackNavigationProp<
   ParamsList,
   'CardList'
 >;
+
 const config = {
   duration: 1000,
   easing: Easing.bezier(0.2, 0.2, 0.2, 0.2),

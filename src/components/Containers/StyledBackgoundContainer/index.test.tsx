@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { render } from '../../../jest/test-utils';
+import { render } from '../../../../jest/test-utils';
 
 import StyledBackgroundContainer from '.';
 

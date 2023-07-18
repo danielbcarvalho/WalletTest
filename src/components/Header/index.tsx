@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { NavigationProp, useNavigation } from '@react-navigation/native';
 
 import { ParamsList } from '../../Routes';
-import MyCardExtendedHeader from '../MyCardsTitle';
+import MyCardExtendedHeader from '../Card/MyCardsTitle';
 
 import {
   Title,

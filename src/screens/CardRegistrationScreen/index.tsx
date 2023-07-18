@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Platform } from 'react-native';
 
-import BrandTitle from '../../components/Title';
-import CardRegistrationForm from '../../components/CardRegistrationForm';
+import BrandTitle from '../../components/BrandTitle';
+import CardRegistrationForm from '../../components/Card/CardRegistrationForm';
 import { useCardRegistration } from '../../components/hooks/useCardRegistration';
-import StyledBackgroundContainer from '../../components/StyledBackgoundContainer';
+import StyledBackgroundContainer from '../../components/Containers/StyledBackgoundContainer';
 
 import { KeyboardAvoidingScrollView, StyledScrollView } from './styles';
 

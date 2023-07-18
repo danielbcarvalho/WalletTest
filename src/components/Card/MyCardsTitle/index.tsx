@@ -2,7 +2,7 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useTheme } from 'styled-components/native';
 
-import { H4 } from '../Typografy/H4';
+import { H4 } from '../../Typografy/H4';
 
 import { Container } from './styles';
 

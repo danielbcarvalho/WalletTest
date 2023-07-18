@@ -1,5 +1,5 @@
 import * as yup from 'yup';
-import { isValidCreditCard } from '../../utils/card';
+import { isValidCreditCard } from '../../../utils/card';
 
 export const cardFormValidationSchema = yup.object().shape({
   number: yup
