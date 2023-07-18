@@ -1,4 +1,5 @@
 import { Alert } from 'react-native';
+import uuid from 'react-native-uuid';
 import { useNavigation } from '@react-navigation/native';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
@@ -20,13 +21,14 @@ interface CardRegistrationFormData {
 }
 
 export function useCardRegistration() {
-  const { navigate } = useNavigation<CardRegistrationScreenProps>();
+  const navigation = useNavigation<CardRegistrationScreenProps>();
   const queryClient = useQueryClient();
 
   const registerCard = useMutation(cardService.register, {
     onSuccess: data => {
       queryClient.invalidateQueries([QueryKeys.CARD_LIST]);
-      navigate('CardRegistrationSuccess', { card: data });
+      navigation.push('Home');
+      navigation.navigate('CardRegistrationSuccess', { card: data });
     },
     onError: (error: any) => {
       Alert.alert('Error', error.message);
@@ -35,6 +37,7 @@ export function useCardRegistration() {
 
   const handleCardRegisterForm = async (data: CardRegistrationFormData) => {
     await registerCard.mutateAsync({
+      id: uuid.v4() as string,
       kind: 'black',
       ...data,
     });

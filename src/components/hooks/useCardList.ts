@@ -1,13 +1,13 @@
-import { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { Card } from '../../models/CardModels';
 import { cardService } from '../../services/card';
 import { QueryKeys } from '../../services/QueryKeys';
-import { CardListScreenProps } from '../../screens/CardListScreen';
 import { isCardOnTheTop, topCardIndex } from '../../utils/card';
+import { CardListScreenProps } from '../../screens/CardListScreen';
 
 const FIVE_MINUTES = 1000 * 60 * 5;
 

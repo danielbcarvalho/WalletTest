@@ -1,6 +1,9 @@
 import styled from 'styled-components/native';
 import MaskInput from 'react-native-mask-input';
 
+interface Props {
+  isDirty: boolean;
+}
 interface ContainerProps {
   width?: number;
 }
@@ -17,7 +20,7 @@ export const Label = styled.Text`
   margin-bottom: 6px;
 `;
 
-export const MaskInputStyled = styled(MaskInput)`
+export const MaskInputStyled = styled(MaskInput)<Props>`
   padding: 0 16px;
   margin-top: 4px;
   height: 45px;
@@ -28,4 +31,7 @@ export const MaskInputStyled = styled(MaskInput)`
   width: 100%;
   font-size: ${({ theme }) => theme.components.input.fontSize};
   font-family: ${({ theme }) => theme.components.input.fontFamily};
+  border: 2px solid transparent;
+  border-color: ${({ theme, isDirty }) =>
+    isDirty ? theme.pallete.alert.main : 'transparent'};
 `;

@@ -13,6 +13,7 @@ import CardRegistration from './';
 jest.mock('../../components/hooks/useCardRegistration');
 jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn(),
+  useFocusEffect: jest.fn(),
 }));
 describe('CardRegistrationScreen', () => {
   let navigateMock: jest.Mock;

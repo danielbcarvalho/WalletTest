@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-export const BottomInputWrapper = styled.TouchableOpacity`
+export const BottomInputWrapper = styled.View`
   flex-direction: row;
   justify-content: space-between;
 `;

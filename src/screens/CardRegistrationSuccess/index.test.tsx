@@ -1,9 +1,5 @@
 import React from 'react';
-import {
-  NavigationContainer,
-  useNavigation,
-  useRoute,
-} from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { fireEvent, render } from '../../../jest/test-utils';
 import CardRegistrationSuccess from './';
 
@@ -41,11 +37,7 @@ describe('CardRegistrationSuccess', () => {
     });
   });
 
-  const component = (
-    <NavigationContainer>
-      <CardRegistrationSuccess />
-    </NavigationContainer>
-  );
+  const component = <CardRegistrationSuccess />;
 
   test('navigate to CardList on button press', () => {
     const { getByTestId } = render(component);

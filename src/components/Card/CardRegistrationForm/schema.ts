@@ -1,7 +1,7 @@
 import * as yup from 'yup';
-import { isValidCreditCard } from '../../../utils/card';
+import { isValidCreditCard, isValidExpirationDate } from '../../../utils/card';
 
-export const cardFormValidationSchema = yup.object().shape({
+export const cardFormValidationSchema = yup.object({
   number: yup
     .string()
     .required('Número do cartão é obrigatório')
@@ -17,7 +17,10 @@ export const cardFormValidationSchema = yup.object().shape({
   expiry: yup
     .string()
     .required('Data de vencimento é obrigatória')
-    .matches(/^\d{2}\/\d{2}$/, 'Data de vencimento inválida'),
+    .matches(/^\d{2}\/\d{2}$/, 'Data de vencimento inválida')
+    .test('expirationDate', 'Data de vencimento inválida', value => {
+      return value ? isValidExpirationDate(value) : true;
+    }),
   cvv: yup
     .string()
     .required('Código de segurança é obrigatório')

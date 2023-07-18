@@ -19,7 +19,7 @@ function CardsSelect() {
 
   const { cards, setCardOnTop, onUseThisCard } = useCardList();
 
-  if (cards?.length === 0) {
+  if (cards.length === 0) {
     return <Text>{t('ops, no card registered')}</Text>;
   }
 
@@ -34,10 +34,10 @@ function CardsSelect() {
   function renderCard({ item, index }: { item: CardModel; index: number }) {
     return (
       <CardContainer
-        disabled={isCardOnTheTop(index, cards)}
         activeOpacity={0.7}
+        onPress={() => setCardOnTop(item.id)}
         cardTop={isCardOnTheTop(index, cards)}
-        onPress={() => setCardOnTop(item.id)}>
+        disabled={isCardOnTheTop(index, cards)}>
         <Card card={item} />
       </CardContainer>
     );
@@ -51,6 +51,7 @@ function CardsSelect() {
         renderItem={renderCard}
         ListFooterComponent={renderUseCardButton}
         keyExtractor={item => item.id.toString()}
+        contentContainerStyle={{ flexGrow: 1, justifyContent: 'center' }}
       />
     </Container>
   );

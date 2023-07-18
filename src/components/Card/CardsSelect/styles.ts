@@ -7,8 +7,8 @@ interface Props {
 }
 
 export const Container = styled.View`
+  flex: 1;
   width: 100%;
-  align-items: center;
 `;
 
 export const UseButton = styled.TouchableOpacity`
@@ -16,9 +16,7 @@ export const UseButton = styled.TouchableOpacity`
   align-items: center;
 `;
 
-export const CardFlatList = styled.FlatList`
-  width: 100%;
-` as typeof FlatList;
+export const CardFlatList = styled.FlatList`` as typeof FlatList;
 
 export const Text = styled.Text`
   ${({ theme }) => css`
@@ -30,6 +28,5 @@ export const Text = styled.Text`
 `;
 
 export const CardContainer = styled.TouchableOpacity<Props>`
-  margin-top: ${({ cardTop }) => (cardTop ? '-105px' : '0')};
-  width: 100%;
+  margin-bottom: ${({ cardTop }) => (cardTop ? '0' : '-105px')};
 `;

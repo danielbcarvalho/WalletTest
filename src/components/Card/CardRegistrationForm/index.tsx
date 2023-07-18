@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { useTranslation } from 'react-i18next';
 import { Masks } from 'react-native-mask-input';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm, Controller } from 'react-hook-form';
+import { useFocusEffect } from '@react-navigation/native';
 
 import { Button } from '../../Button';
 import InputCustom from '../../InputCustom';
@@ -10,7 +12,6 @@ import InputCustom from '../../InputCustom';
 import { BottomInputWrapper } from './styles';
 import { cardFormValidationSchema } from './schema';
 import { getMaskCVV, getMaskDateMMYY } from '../../../utils/mask-input';
-import { useTranslation } from 'react-i18next';
 
 interface Props {
   onCardRegisterForm: (card: FormValues) => void;
@@ -25,7 +26,12 @@ interface FormValues {
 
 function CardRegistrationForm({ onCardRegisterForm }: Props) {
   const { t } = useTranslation();
-  const { control, handleSubmit, formState } = useForm<FormValues>({
+  const {
+    control,
+    handleSubmit,
+    formState,
+    reset: clearForm,
+  } = useForm<FormValues>({
     defaultValues: {
       number: '',
       name: '',
@@ -33,6 +39,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
       cvv: '',
     },
     resolver: yupResolver(cardFormValidationSchema),
+    mode: 'all',
   });
 
   const onSubmit = (data: FormValues) => {
@@ -45,22 +52,33 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
     onCardRegisterForm(card);
   };
 
+  useFocusEffect(
+    React.useCallback(() => {
+      const unsubscribe = () => clearForm();
+
+      return () => unsubscribe();
+    }, [clearForm]),
+  );
+
   return (
     <>
       <Controller
         control={control}
-        render={({ field: { onChange, onBlur, value } }) => (
-          <InputCustom
-            accessibilityLabel={t('card number')}
-            onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-            label={t('card number')}
-            placeholder=""
-            keyboardType="numeric"
-            mask={Masks.CREDIT_CARD}
-          />
-        )}
+        render={({ field: { onChange, onBlur, value } }) => {
+          return (
+            <InputCustom
+              accessibilityLabel={t('card number')}
+              onBlur={onBlur}
+              onChangeText={onChange}
+              value={value}
+              label={t('card number')}
+              placeholder=""
+              keyboardType="numeric"
+              mask={Masks.CREDIT_CARD}
+              name="number"
+            />
+          );
+        }}
         name="number"
       />
       <Controller
@@ -74,6 +92,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
             label={t('card holder name')}
             keyboardType="default"
             autoCapitalize="words"
+            name="name"
           />
         )}
         name="name"
@@ -92,6 +111,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
               keyboardType="numeric"
               width={48}
               mask={getMaskDateMMYY}
+              name="expiry"
             />
           )}
           name="expiry"
@@ -109,6 +129,7 @@ function CardRegistrationForm({ onCardRegisterForm }: Props) {
               keyboardType="numeric"
               width={48}
               mask={getMaskCVV}
+              name="cvv"
             />
           )}
           name="cvv"
