@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img  src="./assets/images/screenshots/walletTest.gif" alt="Wallet Test" />
+  <img  src="./assets/images/screenshots/paym.png" style="width: 180px" alt="Wallet Test" />
 
 &#xa0;
 
