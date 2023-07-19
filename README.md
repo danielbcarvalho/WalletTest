@@ -51,9 +51,11 @@ The following tools were used in this project:
 - [Framework - React Native](https://reactnative.dev/)
 - [Language - TypeScript](https://www.typescriptlang.org/)
 - [Server - JSON SERVER](https://github.com/typicode/json-server)
-- [Form - React Hook Form](https://reactnavigation.org/)
-- [Styling - Styled Components](https://reactnavigation.org/)
+- [React Navigation](https://reactnavigation.org/)
 - [Server state management - React Query](https://reactnavigation.org/)
+- [App state management - Context](https://react.dev/reference/react#context-hooks)
+- [Form - React Hook Form](https://react-hook-form.com/)
+- [Styling - Styled Components](https://reactnavigation.org/)
 - [Translation - i18next](https://reactnavigation.org/)
   
 
