@@ -1,19 +1,14 @@
 import React from 'react';
 import { act } from 'react-test-renderer';
 import * as ReactQuery from '@tanstack/react-query';
-import { waitFor } from '@testing-library/react-native';
+import { fireEvent, waitFor } from '@testing-library/react-native';
 import { renderHook } from '@testing-library/react-hooks';
-
-import { Card } from '../../../models/CardModels';
-import {
-  render,
-  fireEvent,
-  createQueryClientWrapper,
-} from '../../../../jest/test-utils';
 
 import CardsSelect from '.';
 import { useNavigation } from '@react-navigation/native';
-import { useCardList } from '../../hooks/useCardList';
+import { Card } from '../../models/CardModels';
+import { createQueryClientWrapper, render } from '../../../jest/test-utils';
+import { useCardList } from '../../components/hooks/useCardList';
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn(),

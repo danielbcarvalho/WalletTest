@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputCustom renders correctly 1`] = `
+<View
+  style={
+    {
+      "marginBottom": 16,
+      "marginLeft": 10,
+      "marginRight": 10,
+      "marginTop": 16,
+      "width": "100%",
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#FFFFFF",
+        "fontFamily": "PTSans-Regular",
+        "fontSize": 14,
+        "marginBottom": 6,
+      }
+    }
+  >
+    card number
+  </Text>
+  <TextInput
+    accessibilityLabel="card number"
+    autoComplete="off"
+    autoCorrect={false}
+    isDirty={false}
+    onChangeText={[Function]}
+    onSelectionChange={[Function]}
+    style={
+      {
+        "backgroundColor": "#EEEEEE",
+        "borderBottomColor": "transparent",
+        "borderBottomLeftRadius": 6,
+        "borderBottomRightRadius": 6,
+        "borderColor": "transparent",
+        "borderLeftColor": "transparent",
+        "borderRightColor": "transparent",
+        "borderStyle": "solid",
+        "borderTopColor": "transparent",
+        "borderTopLeftRadius": 6,
+        "borderTopRightRadius": 6,
+        "borderWidth": 2,
+        "color": "#111",
+        "fontFamily": "PTSans-Regular",
+        "fontSize": 16,
+        "height": 45,
+        "marginTop": 4,
+        "overflow": "hidden",
+        "paddingBottom": 0,
+        "paddingLeft": 16,
+        "paddingRight": 16,
+        "paddingTop": 0,
+        "width": "100%",
+      }
+    }
+    value="1"
+  />
+</View>
+`;

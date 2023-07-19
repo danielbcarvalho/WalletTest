@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Image } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { StyleSheet, Image, Alert } from 'react-native';
 import Animated, {
   Easing,
   withTiming,
@@ -24,8 +25,9 @@ const config = {
 };
 
 function WalletAnimatedScreen() {
-  const { isLoading, isError } = useCardList();
-  const { navigate } = useNavigation<WalletAnimatedScreenProps>();
+  const { t } = useTranslation();
+  const { isLoading, isError, error } = useCardList();
+  const navigation = useNavigation<WalletAnimatedScreenProps>();
 
   const width = useSharedValue(400);
   const height = useSharedValue(235);
@@ -50,10 +52,18 @@ function WalletAnimatedScreen() {
   }, [height, width]);
 
   useEffect(() => {
-    if (!isLoading && !isError) {
-      navigate('CardList');
+    if (isError) {
+      Alert.alert(t('Ops, something went wrong'), error?.message, [
+        {
+          text: 'Voltar',
+          onPress: () => navigation.replace('Home'),
+        },
+      ]);
     }
-  }, [isLoading, isError, navigate]);
+    if (!isLoading && !isError) {
+      navigation.replace('CardList');
+    }
+  }, [isLoading, isError, navigation, error, t]);
 
   return (
     <Container>

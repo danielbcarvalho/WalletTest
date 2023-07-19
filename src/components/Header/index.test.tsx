@@ -10,6 +10,14 @@ jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn(),
 }));
 
+jest.mock('react-native-device-info', () => {
+  return {
+    __esModule: true,
+    default: jest.fn(() => {}),
+    hasNotch: jest.fn(() => true),
+  };
+});
+
 describe('HeaderButton', () => {
   let navigateMock: jest.Mock;
   let goBackMock: jest.Mock;

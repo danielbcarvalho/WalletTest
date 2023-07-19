@@ -1,5 +1,7 @@
 import { css } from 'styled-components';
 import styled from 'styled-components/native';
+import { hasNotch } from 'react-native-device-info';
+import { verticalScale } from 'react-native-size-matters';
 
 interface Props {
   type: 'register' | 'cardList';
@@ -41,7 +43,7 @@ export const RowContainer = styled.View<Props>`
   align-items: center;
   padding-left: 20px;
   padding-right: 30px;
-  padding-top: 30px;
+  padding-top: ${hasNotch() ? '30px' : '0px'};
   ${({ type }) =>
     type === 'register' &&
     css`
@@ -50,7 +52,7 @@ export const RowContainer = styled.View<Props>`
       shadow-offset: 0px 2px;
       shadow-opacity: 0.3;
       shadow-radius: 4px;
-      elevation: 4;
+      elevation: 8;
     `}
 `;
 
@@ -59,7 +61,7 @@ export const Container = styled.View<Props>`
     background-color: ${type === 'register' &&
     theme.components.header.title.register.backgroundColor};
 
-    height: ${type === 'register' ? '160px' : 'auto'};
+    height: ${type === 'register' ? `${verticalScale(125)}px` : 'auto'};
     border-radius: ${type === 'register' ? '50px' : '0px'};
   `}
   flex: 1;

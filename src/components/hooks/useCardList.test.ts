@@ -6,13 +6,18 @@ import { renderHook } from '@testing-library/react-hooks';
 
 import { useCardList } from './useCardList';
 import { Card } from '../../models/CardModels';
-import { createQueryClientWrapper } from '../../../jest/test-utils';
 
 jest.mock('@react-navigation/native', () => ({
   useNavigation: jest.fn(),
 }));
 
-const mockDoubleCardsData: Card[] = [
+jest.mock('@tanstack/react-query', () => ({
+  useMutation: jest.fn(),
+  useQueryClient: jest.fn(),
+  useQuery: jest.fn(),
+}));
+
+export const mockDoubleCardsData: Card[] = [
   {
     id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
     number: '3529 5435 3355 8720',
@@ -31,93 +36,65 @@ const mockDoubleCardsData: Card[] = [
   },
 ];
 
-const mockBottomCardIndex = 0;
-describe('useCardList hook - (NEED JSON SERVER UP)', () => {
-  const mockNavigate = jest.fn();
+export const mockCards = [
+  {
+    id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
+    number: '3529 5435 3355 8720',
+    cvv: '017',
+    name: 'John Doe',
+    expiry: '12/23',
+    kind: 'black',
+  },
+];
 
-  const mockCards = [
-    {
-      id: '4ec42ba9-50af-40d2-af90-8312edbd9ca2',
-      number: '3529 5435 3355 8720',
-      cvv: '017',
-      name: 'John Doe',
-      expiry: '12/23',
-      kind: 'black',
-    },
-  ];
+const mockBottomCardIndex = 0;
+describe('useCardList hook', () => {
+  const mockNavigate = jest.fn();
+  const mockInvalidateQueries = jest.fn();
+  const mockMutateAsync = jest.fn();
 
   beforeAll(() => {
+    jest.clearAllMocks();
+
     useNavigation.mockReturnValue({ navigate: mockNavigate });
+    ReactQuery.useQueryClient.mockReturnValue({
+      invalidateQueries: mockInvalidateQueries,
+    });
+    ReactQuery.useMutation.mockReturnValue({
+      mutateAsync: mockMutateAsync,
+      onError: jest.fn(),
+    });
+    ReactQuery.useQuery.mockReturnValue({
+      data: mockCards,
+      onError: jest.fn(),
+    });
   });
 
-  beforeEach(() => {
+  afterEach(() => {
     jest.clearAllMocks();
   });
 
-  test('Navigate to WalletAnimatedScreen', async () => {
-    const { result } = renderHook(() => useCardList(), {
-      wrapper: createQueryClientWrapper(),
-    });
-
-    expect(result.current.cards).toHaveLength(0);
-    expect(result.current.isError).toBe(false);
-    expect(result.current.isLoading).toBe(true);
-    expect(mockNavigate).toHaveBeenCalledWith('WalletAnimatedScreen');
-  });
-
   test('retrieve correct data', async () => {
-    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-      jest.fn().mockReturnValue({
-        data: mockCards,
-      }),
-    );
-
-    const { result } = renderHook(() => useCardList(), {
-      wrapper: createQueryClientWrapper(),
+    ReactQuery.useQuery.mockReturnValue({
+      data: mockCards,
+      onError: jest.fn(),
     });
-
-    await waitFor(() => {
-      expect(result.current.cards.length).toBeGreaterThan(0);
-    });
-
+    const { result } = renderHook(() => useCardList());
+    expect(result.current?.cards?.length).toBeGreaterThan(0);
     expect(result.current.cards).toBe(mockCards);
   });
 
-  test('navigate to Home when some error happened', async () => {
-    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-      jest.fn().mockReturnValue({
-        isError: true,
-      }),
-    );
-    const { result } = renderHook(() => useCardList(), {
-      wrapper: createQueryClientWrapper(),
-    });
-    await waitFor(() => {
-      expect(result.current.isError).toBeTruthy();
-    });
-
-    expect(mockNavigate).toHaveBeenCalledWith('Home');
-  });
-
   test('set card on top correctly', async () => {
-    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-      jest.fn().mockReturnValue({
-        data: mockCards,
-      }),
-    );
-
-    const { result } = renderHook(() => useCardList(), {
-      wrapper: createQueryClientWrapper(),
+    ReactQuery.useQuery.mockReturnValue({
+      data: mockCards,
+      onError: jest.fn(),
     });
-
+    const { result } = renderHook(() => useCardList());
     await act(async () => {
-      result.current.setCardOnTop(mockDoubleCardsData[mockBottomCardIndex].id);
+      result.current?.setCardOnTop(mockDoubleCardsData[mockBottomCardIndex].id);
     });
-
-    await waitFor(async () => {
-      expect(result.current.cards[mockBottomCardIndex]).toBe(
-        mockCards[mockBottomCardIndex],
-      );
-    });
+    expect(result.current.cards[mockBottomCardIndex]).toBe(
+      mockCards[mockBottomCardIndex],
+    );
   });
 });

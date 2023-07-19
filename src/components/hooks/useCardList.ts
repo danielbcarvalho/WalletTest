@@ -1,5 +1,5 @@
-import { Alert } from 'react-native';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { AxiosError } from 'axios';
 import { useNavigation } from '@react-navigation/native';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
 
@@ -15,9 +15,9 @@ export function useCardList() {
   const queryClient = useQueryClient();
   const { navigate } = useNavigation<CardListScreenProps>();
   const [useThisCard, setUseThisCard] = useState<boolean>(false);
-  const [payWithThisCard, setPayWithThisCard] = useState<boolean>(false);
 
   const {
+    error,
     isError,
     data: cards,
     isInitialLoading,
@@ -40,34 +40,18 @@ export function useCardList() {
     }
   }
 
-  function onPayWithThisCard(value: boolean) {
-    setPayWithThisCard(value);
-  }
-
   function onUseThisCard() {
     setUseThisCard(true);
     navigate('CardPayment');
   }
 
-  useEffect(() => {
-    if (isError) {
-      Alert.alert('Something went wrong');
-      navigate('Home');
-    }
-
-    if (isInitialLoading) {
-      navigate('WalletAnimatedScreen');
-    }
-  }, [cards, isError, navigate, isInitialLoading]);
-
   return {
     cards: cards ?? [],
+    error: error as AxiosError | undefined,
     isError,
     useThisCard,
     setCardOnTop,
     onUseThisCard,
-    payWithThisCard,
-    onPayWithThisCard,
     isLoading: isInitialLoading,
   };
 }

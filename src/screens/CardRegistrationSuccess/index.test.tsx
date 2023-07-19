@@ -1,6 +1,8 @@
 import React from 'react';
 import { useNavigation, useRoute } from '@react-navigation/native';
+
 import { fireEvent, render } from '../../../jest/test-utils';
+
 import CardRegistrationSuccess from './';
 
 jest.mock('react-i18next', () => ({

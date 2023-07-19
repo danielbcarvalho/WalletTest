@@ -23,7 +23,7 @@ describe('Home', () => {
     const myCardsButton = getByText('my cards');
     fireEvent.press(myCardsButton);
 
-    expect(navigateMock).toHaveBeenCalledWith('CardList');
+    expect(navigateMock).toHaveBeenCalledWith('WalletAnimatedScreen');
   });
 
   test('navigates to CardRegistrationScreen on register card button press', () => {

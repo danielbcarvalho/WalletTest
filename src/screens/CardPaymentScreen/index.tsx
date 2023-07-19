@@ -1,5 +1,7 @@
-import React, { useCallback } from 'react';
+import React from 'react';
+import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 
 import { ParamsList } from '../../Routes';
@@ -17,8 +19,6 @@ import {
 import Card from '../../components/Card';
 import { Button } from '../../components/Button';
 import { isCardOnTheTop } from '../../utils/card';
-import { useFocusEffect, useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native';
 
 export type CardPaymentScreenProps = NativeStackNavigationProp<
   ParamsList,
@@ -26,21 +26,11 @@ export type CardPaymentScreenProps = NativeStackNavigationProp<
 >;
 
 function CardPayment() {
-  const { cards, isLoading, setCardOnTop, onPayWithThisCard } = useCardList();
+  const { cards, isLoading, setCardOnTop } = useCardList();
 
   const navigation = useNavigation<CardPaymentScreenProps>();
 
   const { t } = useTranslation();
-
-  useFocusEffect(
-    useCallback(() => {
-      const unsubscribe = navigation.addListener('beforeRemove', _e => {
-        onPayWithThisCard(false);
-      });
-
-      return unsubscribe;
-    }, [navigation, onPayWithThisCard]),
-  );
 
   if (isLoading) {
     return null;
@@ -58,7 +48,6 @@ function CardPayment() {
       ],
       { cancelable: false },
     );
-    onPayWithThisCard(true);
   }
 
   function renderUseCardButton() {
@@ -81,7 +70,10 @@ function CardPayment() {
       );
     } else {
       return (
-        <DisabledCard activeOpacity={0.7} onPress={() => setCardOnTop(item.id)}>
+        <DisabledCard
+          activeOpacity={0.7}
+          onPress={() => setCardOnTop(item.id)}
+          accessibilityLabel="disabled-card">
           <Card card={item} />
         </DisabledCard>
       );
@@ -94,8 +86,8 @@ function CardPayment() {
         {cards && (
           <CardFlatList
             data={cards}
-            bounces={false}
             renderItem={renderCard}
+            showsVerticalScrollIndicator={false}
             ListFooterComponent={renderUseCardButton}
             keyExtractor={item => item.id.toString()}
           />

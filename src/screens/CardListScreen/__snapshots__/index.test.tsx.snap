@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CardsSelect renders correctly with cards 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#142995",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "justifyContent": "center",
+      "paddingBottom": 0,
+      "paddingLeft": 30,
+      "paddingRight": 30,
+      "paddingTop": 0,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#FFF",
+        "fontSize": 16,
+        "lineHeight": 28,
+        "marginTop": 15,
+      }
+    }
+  >
+    ops, no card registered
+  </Text>
+</View>
+`;
+
+exports[`CardsSelect renders correctly with no cards 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#142995",
+      "flexBasis": 0,
+      "flexGrow": 1,
+      "flexShrink": 1,
+      "justifyContent": "center",
+      "paddingBottom": 0,
+      "paddingLeft": 30,
+      "paddingRight": 30,
+      "paddingTop": 0,
+    }
+  }
+>
+  <Text
+    style={
+      {
+        "color": "#FFF",
+        "fontSize": 16,
+        "lineHeight": 28,
+        "marginTop": 15,
+      }
+    }
+  >
+    ops, no card registered
+  </Text>
+</View>
+`;

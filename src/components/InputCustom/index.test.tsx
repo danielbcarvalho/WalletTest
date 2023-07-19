@@ -1,25 +1,50 @@
 import React from 'react';
-import { fireEvent } from '@testing-library/react-native';
-import { render } from '../../../jest/test-utils';
+import { render, fireEvent } from '@testing-library/react-native';
+
 import InputCustom from './';
+import { ThemeProvider } from '../../theme';
 
 describe('InputCustom', () => {
   test('renders correctly', () => {
-    const { getByText } = render(<InputCustom label="Test Label" />);
-
-    const label = getByText('Test Label');
-    expect(label).toBeTruthy();
-  });
-
-  test('calls onChangeText when text changes', () => {
+    const label = 'card number';
+    const value = '1';
     const onChangeText = jest.fn();
-    const { getByText } = render(
-      <InputCustom label="Test Label" onChangeText={onChangeText} />,
+
+    const { getByLabelText, getByText, toJSON } = render(
+      <ThemeProvider>
+        <InputCustom
+          label={label}
+          value={value}
+          onChangeText={onChangeText}
+          name="number"
+        />
+      </ThemeProvider>,
     );
 
-    const label = getByText('Test Label');
-    fireEvent.changeText(label, 'Test Input');
+    const inputElement = getByLabelText(label);
+    expect(inputElement).toHaveProp('value', value);
 
-    expect(onChangeText).toHaveBeenCalledWith('Test Input');
+    expect(toJSON()).toMatchSnapshot();
+  });
+
+  test('validates field on selection change', () => {
+    const label = 'Card Number';
+    const value = '1234567890';
+    const validateFieldMock = jest.fn();
+
+    const { getByLabelText } = render(
+      <ThemeProvider>
+        <InputCustom
+          label={label}
+          value={value}
+          onSelectionChange={validateFieldMock}
+        />
+      </ThemeProvider>,
+    );
+
+    const inputElement = getByLabelText(label);
+    fireEvent(inputElement, 'selectionChange');
+
+    expect(validateFieldMock).toHaveBeenCalledTimes(1);
   });
 });
