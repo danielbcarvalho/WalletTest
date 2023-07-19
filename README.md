@@ -18,7 +18,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Wallet Test - Under construction...  🚧
+	🚧  Wallet Test - V1...  🚧
 </h4> 
 
 <hr>
@@ -51,9 +51,11 @@ The following tools were used in this project:
 - [Framework - React Native](https://reactnative.dev/)
 - [Language - TypeScript](https://www.typescriptlang.org/)
 - [Server - JSON SERVER](https://github.com/typicode/json-server)
-- [Form - React Hook Form](https://reactnavigation.org/)
-- [Styling - Styled Components](https://reactnavigation.org/)
+- [React Navigation](https://reactnavigation.org/)
 - [Server state management - React Query](https://reactnavigation.org/)
+- [App state management - Context](https://react.dev/reference/react#context-hooks)
+- [Form - React Hook Form](https://react-hook-form.com/)
+- [Styling - Styled Components](https://reactnavigation.org/)
 - [Translation - i18next](https://reactnavigation.org/)
   
 
@@ -92,6 +94,14 @@ $ yarn ios
 $ yarn start
 ```
 
+
+
+## Notes
+
+- **API Timeout**: A deliberate timeout of 3 seconds has been set in the API to simulate a loading screen. This allows for a better user experience by providing visual feedback while waiting for the API response.
+
+---
+
   <img  src="./assets/images/screenshots/V1-CardPayment.gif" style="width: 180px; padding-top: 30px" alt="Wallet Test" />
 
   <img  src="./assets/images/screenshots/V1-register.gif" style="width: 180px; padding-top: 30px" alt="Wallet Test" />
@@ -99,7 +109,10 @@ $ yarn start
 
 &#xa0;
 
-Author
+
+
+## Author
 👨🏻‍💻 LinkedIn: Daniel Carvalho
+
 
 <a href="#top">Back to top</a>
