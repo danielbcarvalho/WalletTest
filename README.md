@@ -18,7 +18,7 @@
 </p>
 
 <h4 align="center"> 
-	🚧  Wallet Test - Under construction...  🚧
+	🚧  Wallet Test - V1...  🚧
 </h4> 
 
 <hr>
@@ -94,5 +94,10 @@ $ yarn start
 
 
 &#xa0;
+
+## Notes
+
+- **API Timeout**: A deliberate timeout of 3 seconds has been set in the API to simulate a loading screen. This allows for a better user experience by providing visual feedback while waiting for the API response.
+
 
 <a href="#top">Back to top</a>
