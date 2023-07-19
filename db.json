@@ -7,14 +7,6 @@
       "name": "John Doe",
       "expiry": "12/23",
       "kind": "black"
-    },
-    {
-      "name": "Daniel B Carvalho",
-      "number": "5203 9436 6133 9001",
-      "cvv": "123",
-      "expiry": "11/24",
-      "id": "4ec42ba9-50af-40d2-af90-8312edbd9XXX",
-      "kind": "green"
     }
   ]
 }

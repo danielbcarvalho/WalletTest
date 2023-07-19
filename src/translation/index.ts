@@ -22,6 +22,11 @@ export const translations = {
       'My cards': 'Meus cartões',
       'Payment Successful': 'Pagamento realizado com sucesso',
       Congratulations: 'Parabéns',
+      'Ops, something went wrong': 'Ops, algo deu errado',
+      'Try again later': 'Tente novamente mais tarde',
+      'Card limit reached': 'Limite de cartões atingido',
+      'Soon you will be able to register more cards':
+        'Em breve você poderá cadastrar mais cartões',
     },
   },
 };

@@ -1,6 +1,7 @@
+import * as ReactQuery from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
 import { renderHook, act } from '@testing-library/react-hooks';
-import { useMutation, useQueryClient } from '@tanstack/react-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 
 import { useCardRegistration } from './useCardRegistration';
 
@@ -11,6 +12,7 @@ jest.mock('@react-navigation/native', () => ({
 jest.mock('@tanstack/react-query', () => ({
   useMutation: jest.fn(),
   useQueryClient: jest.fn(),
+  useQuery: jest.fn(),
 }));
 
 describe('useCardRegistration hook', () => {
@@ -19,6 +21,7 @@ describe('useCardRegistration hook', () => {
   const mockMutateAsync = jest.fn();
 
   const mockData = {
+    id: '4d18544b-66c4-478b-ab4a-0bab14c6f4d8',
     number: '5503 2328 4377 9802',
     name: 'John Doe',
     expiry: '12/24',
@@ -42,6 +45,12 @@ describe('useCardRegistration hook', () => {
   });
 
   test('call mutateAsync with the form data', async () => {
+    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
+      jest.fn().mockReturnValue({
+        data: [],
+      }),
+    );
+
     const { result } = renderHook(() => useCardRegistration());
     await act(async () => {
       await result.current(mockData);

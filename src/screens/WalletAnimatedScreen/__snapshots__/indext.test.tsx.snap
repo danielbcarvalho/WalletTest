@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`WalletAnimatedScreen should render correctly 1`] = `
+exports[`WalletAnimatedScreen should render correctly loading 1`] = `
 <RNCSafeAreaView
   edges={
     {

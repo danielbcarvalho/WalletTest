@@ -1,13 +1,10 @@
 import React from 'react';
-
 import { act } from 'react-test-renderer';
 import * as ReactQuery from '@tanstack/react-query';
 import { useNavigation } from '@react-navigation/native';
 import { fireEvent, render, waitFor } from '@testing-library/react-native';
-
 import CardRegistrationForm from '../../components/Card/CardRegistrationForm';
 import { useCardRegistration } from '../../components/hooks/useCardRegistration';
-
 import CardRegistration from './';
 import { renderHook } from '@testing-library/react-hooks';
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -28,7 +25,6 @@ describe('CardRegistrationScreen', () => {
   const mockNavigate = jest.fn();
   const mockInvalidateQueries = jest.fn();
   const mockMutateAsync = jest.fn();
-
   const mockData = {
     id: '4d18544b-66c4-478b-ab4a-0bab14c6f4d8',
     number: '5503 2328 4377 9802',
@@ -37,7 +33,14 @@ describe('CardRegistrationScreen', () => {
     kind: 'black',
     cvv: '123',
   };
+
   beforeEach(() => {
+    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
+      jest.fn().mockReturnValue({
+        data: [],
+      }),
+    );
+
     useNavigation.mockReturnValue({ navigate: mockNavigate });
     useQueryClient.mockReturnValue({
       invalidateQueries: mockInvalidateQueries,
@@ -53,16 +56,11 @@ describe('CardRegistrationScreen', () => {
   });
 
   afterEach(() => {
+    jest.restoreAllMocks();
     jest.clearAllMocks();
   });
 
   test('call useCardRegistration hook and trigger onCardRegisterForm on form submission', async () => {
-    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-      jest.fn().mockReturnValue({
-        data: [],
-      }),
-    );
-
     const onCardRegisterFormMock = jest.fn();
 
     const { result } = renderHook(() => useCardRegistration());
@@ -73,7 +71,7 @@ describe('CardRegistrationScreen', () => {
 
     const { getByLabelText, getByText } = render(
       <ThemeProvider>
-        <CardRegistrationForm onCardRegisterForm={onCardRegisterFormMock} />,
+        <CardRegistrationForm onCardRegisterForm={onCardRegisterFormMock} />
       </ThemeProvider>,
     );
     await act(async () => {
@@ -95,12 +93,6 @@ describe('CardRegistrationScreen', () => {
   });
 
   test('matches snapshot', async () => {
-    jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
-      jest.fn().mockReturnValue({
-        data: mockData,
-      }),
-    );
-
     const { result } = renderHook(() => useCardRegistration());
 
     await act(async () => {
@@ -114,4 +106,25 @@ describe('CardRegistrationScreen', () => {
     );
     expect(toJSON()).toMatchSnapshot();
   });
+
+  // test('matches snapshot', async () => {
+  //   jest.spyOn(ReactQuery, 'useQuery').mockImplementation(
+  //     jest.fn().mockReturnValue({
+  //       data: mockData,
+  //     }),
+  //   );
+
+  //   const { result } = renderHook(() => useCardRegistration());
+
+  //   await act(async () => {
+  //     await result.current(mockData);
+  //   });
+
+  //   const { toJSON } = render(
+  //     <ThemeProvider>
+  //       <CardRegistration />
+  //     </ThemeProvider>,
+  //   );
+  //   expect(toJSON()).toMatchSnapshot();
+  // });
 });

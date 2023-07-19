@@ -7,6 +7,14 @@ import { render } from '../../jest/test-utils';
 
 import Routes from './index';
 
+jest.mock('react-native-device-info', () => {
+  return {
+    __esModule: true,
+    default: jest.fn(() => {}),
+    hasNotch: jest.fn(() => true),
+  };
+});
+
 describe('Routes', () => {
   test('HomeScreen exists', async () => {
     const component = (

@@ -137,17 +137,26 @@ exports[`CardRegistrationScreen matches snapshot 1`] = `
             accessibilityLabel="card number"
             autoComplete="off"
             autoCorrect={false}
+            isDirty={false}
             keyboardType="numeric"
             onBlur={[Function]}
             onChangeText={[Function]}
+            onSelectionChange={[Function]}
             placeholder=""
             style={
               {
                 "backgroundColor": "#EEEEEE",
+                "borderBottomColor": "transparent",
                 "borderBottomLeftRadius": 6,
                 "borderBottomRightRadius": 6,
+                "borderColor": "transparent",
+                "borderLeftColor": "transparent",
+                "borderRightColor": "transparent",
+                "borderStyle": "solid",
+                "borderTopColor": "transparent",
                 "borderTopLeftRadius": 6,
                 "borderTopRightRadius": 6,
+                "borderWidth": 2,
                 "color": "#111",
                 "fontFamily": "PTSans-Regular",
                 "fontSize": 16,
@@ -192,16 +201,25 @@ exports[`CardRegistrationScreen matches snapshot 1`] = `
             autoCapitalize="words"
             autoComplete="off"
             autoCorrect={false}
+            isDirty={false}
             keyboardType="default"
             onBlur={[Function]}
             onChangeText={[Function]}
+            onSelectionChange={[Function]}
             style={
               {
                 "backgroundColor": "#EEEEEE",
+                "borderBottomColor": "transparent",
                 "borderBottomLeftRadius": 6,
                 "borderBottomRightRadius": 6,
+                "borderColor": "transparent",
+                "borderLeftColor": "transparent",
+                "borderRightColor": "transparent",
+                "borderStyle": "solid",
+                "borderTopColor": "transparent",
                 "borderTopLeftRadius": 6,
                 "borderTopRightRadius": 6,
+                "borderWidth": 2,
                 "color": "#111",
                 "fontFamily": "PTSans-Regular",
                 "fontSize": 16,
@@ -219,38 +237,10 @@ exports[`CardRegistrationScreen matches snapshot 1`] = `
           />
         </View>
         <View
-          accessibilityState={
-            {
-              "busy": undefined,
-              "checked": undefined,
-              "disabled": undefined,
-              "expanded": undefined,
-              "selected": undefined,
-            }
-          }
-          accessibilityValue={
-            {
-              "max": undefined,
-              "min": undefined,
-              "now": undefined,
-              "text": undefined,
-            }
-          }
-          accessible={true}
-          collapsable={false}
-          focusable={false}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
           style={
             {
               "flexDirection": "row",
               "justifyContent": "space-between",
-              "opacity": 1,
             }
           }
         >
@@ -282,17 +272,26 @@ exports[`CardRegistrationScreen matches snapshot 1`] = `
               accessibilityLabel="expiration date"
               autoComplete="off"
               autoCorrect={false}
+              isDirty={false}
               keyboardType="numeric"
               onBlur={[Function]}
               onChangeText={[Function]}
+              onSelectionChange={[Function]}
               placeholder="00/00"
               style={
                 {
                   "backgroundColor": "#EEEEEE",
+                  "borderBottomColor": "transparent",
                   "borderBottomLeftRadius": 6,
                   "borderBottomRightRadius": 6,
+                  "borderColor": "transparent",
+                  "borderLeftColor": "transparent",
+                  "borderRightColor": "transparent",
+                  "borderStyle": "solid",
+                  "borderTopColor": "transparent",
                   "borderTopLeftRadius": 6,
                   "borderTopRightRadius": 6,
+                  "borderWidth": 2,
                   "color": "#111",
                   "fontFamily": "PTSans-Regular",
                   "fontSize": 16,
@@ -337,17 +336,26 @@ exports[`CardRegistrationScreen matches snapshot 1`] = `
               accessibilityLabel="cvv"
               autoComplete="off"
               autoCorrect={false}
+              isDirty={false}
               keyboardType="numeric"
               onBlur={[Function]}
               onChangeText={[Function]}
+              onSelectionChange={[Function]}
               placeholder="***"
               style={
                 {
                   "backgroundColor": "#EEEEEE",
+                  "borderBottomColor": "transparent",
                   "borderBottomLeftRadius": 6,
                   "borderBottomRightRadius": 6,
+                  "borderColor": "transparent",
+                  "borderLeftColor": "transparent",
+                  "borderRightColor": "transparent",
+                  "borderStyle": "solid",
+                  "borderTopColor": "transparent",
                   "borderTopLeftRadius": 6,
                   "borderTopRightRadius": 6,
+                  "borderWidth": 2,
                   "color": "#111",
                   "fontFamily": "PTSans-Regular",
                   "fontSize": 16,

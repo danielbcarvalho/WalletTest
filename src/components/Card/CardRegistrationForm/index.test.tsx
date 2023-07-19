@@ -5,6 +5,11 @@ import { render } from '../../../../jest/test-utils';
 
 import CardRegistrationForm from '.';
 
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: jest.fn(),
+  useFocusEffect: jest.fn(),
+}));
+
 describe('CardRegistrationForm', () => {
   const mockOnCardRegisterForm = jest.fn();
 
