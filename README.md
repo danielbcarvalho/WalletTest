@@ -92,7 +92,14 @@ $ yarn ios
 $ yarn start
 ```
 
+  <img  src="./assets/images/screenshots/V1-CardPayment.gif" style="width: 180px; padding-top: 30px" alt="Wallet Test" />
+
+  <img  src="./assets/images/screenshots/V1-register.gif" style="width: 180px; padding-top: 30px" alt="Wallet Test" />
+
 
 &#xa0;
+
+Author
+👨🏻‍💻 LinkedIn: Daniel Carvalho
 
 <a href="#top">Back to top</a>
