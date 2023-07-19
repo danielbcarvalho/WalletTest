@@ -3,10 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "android:start:server": "adb reverse tcp:3000 tcp:3000 && yarn start:server",
+    "abd:reverse": "adb reverse tcp:3000 tcp:3000",
     "start:server": "json-server --watch db.json",
     "android": "react-native run-android",
-    "android:server": "react-native run-android",
     "ios": "react-native run-ios",
     "lint": "eslint .",
     "start": "react-native start",

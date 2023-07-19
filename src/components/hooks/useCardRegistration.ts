@@ -50,7 +50,7 @@ export function useCardRegistration() {
     try {
       if (cards.length >= 2) {
         ShowAlert({
-          title: t('Ops, something went wrong'),
+          title: t('Card limit reached'),
           message: t('Soon you will be able to register more cards'),
           onPress: () => navigation.navigate('Home'),
         });

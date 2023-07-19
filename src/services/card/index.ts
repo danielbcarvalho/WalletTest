@@ -7,10 +7,10 @@ import { api } from '../api';
 async function list(): Promise<Card[]> {
   try {
     // Simulate loading
-    // return await listWithDelay();
+    return await listWithDelay();
     // regular call
-    const { data } = await api.get<Card[]>('/cards');
-    return data;
+    // const { data } = await api.get<Card[]>('/cards');
+    // return data;
   } catch (error: unknown) {
     if (error instanceof AxiosError && error.response?.data) {
       throw new Error(error.response.data);
@@ -33,14 +33,14 @@ async function register(card: Card): Promise<Card> {
   }
 }
 
-// async function listWithDelay(): Promise<Card[]> {
-//   return new Promise(resolve => {
-//     setTimeout(async () => {
-//       const { data } = await api.get<Card[]>('/cards');
-//       resolve(data);
-//     }, 3000); // 3 seconds of delay to simulate loading
-//   });
-// }
+async function listWithDelay(): Promise<Card[]> {
+  return new Promise(resolve => {
+    setTimeout(async () => {
+      const { data } = await api.get<Card[]>('/cards');
+      resolve(data);
+    }, 3000); // 3 seconds of delay to simulate loading
+  });
+}
 
 export const cardService = {
   list,
