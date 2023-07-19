@@ -1,5 +1,5 @@
 <div align="center" id="top"> 
-  <img width="400" src="./assets/images/screenshots/cardselect.gif" alt="Wallet Test" />
+  <img  src="./assets/images/screenshots/walletTest.gif" alt="Wallet Test" />
 
 &#xa0;
 
@@ -11,8 +11,6 @@
   <img alt="Github top language" src="https://img.shields.io/github/languages/top/danielbcarvalho/WalletTest?color=green">
 
   <img alt="Github language count" src="https://img.shields.io/github/languages/count/danielbcarvalho/WalletTest?color=green">
-
-  <img alt="License" src="https://img.shields.io/github/license/danielbcarvalho/WalletTest?color=green">
 
   <img alt="Github forks" src="https://img.shields.io/github/forks/danielbcarvalho/WalletTest?color=green" />
 
@@ -31,7 +29,6 @@
   <a href="#technologies">Technologies</a> &#xa0; | &#xa0;
   <a href="#requirements">Requirements</a> &#xa0; | &#xa0;
   <a href="#starting">Starting</a> &#xa0; | &#xa0;
-  <a href="#license">License</a> &#xa0; | &#xa0;
   <a href="https://github.com/danielbcarvalho" target="_blank">Author</a>
 </p>
 
@@ -94,14 +91,6 @@ $ npx pod-install ios
 $ yarn ios
 $ yarn start
 ```
-
-## License
-
-This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
-
-Made by <a href="https://github.com/danielbcarvalho" target="_blank">Daniel Carvalho</a>
-
-[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/danielcarvalho-dev/)](https://www.linkedin.com/in/danielcarvalho-dev/)
 
 
 &#xa0;
